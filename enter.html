@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enter Party Prompts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-enter">
+    <main class="party-shell">
+      <header class="party-header">
+        <nav class="page-links" aria-label="Party pages">
+          <a href="viewer.html">Use the app</a>
+        </nav>
+        <p class="kicker" data-app-name>Friend Connect</p>
+        <h1 data-page-greeting>Toss a prompt into the party bowl</h1>
+        <p class="header-note" data-page-subheading>Add a question or activity for the group.</p>
+      </header>
+
+      <section class="submission-card" aria-labelledby="submit-title">
+        <h2 id="submit-title">Add yours</h2>
+        <form id="promptForm" class="prompt-form">
+          <label class="field-block">
+            Question or activity
+            <textarea
+              id="promptText"
+              name="promptText"
+              maxlength="420"
+              rows="5"
+              required
+              placeholder="What is a question that would make the day feel more real or fun or playful?"
+            ></textarea>
+          </label>
+
+          <div class="form-row">
+            <label class="field-block">
+              Category
+              <select id="promptCategory" name="promptCategory" required></select>
+            </label>
+            <button class="party-button" type="submit">Add to the bowl</button>
+          </div>
+        </form>
+        <p id="saveStatus" class="save-status" role="status"></p>
+      </section>
+
+      <section class="instructions-card" aria-labelledby="instructions-title">
+        <h2 id="instructions-title">Tiny rules for good sparks</h2>
+        <ol class="instruction-list">
+          <li>Try something open-ended, not yes-or-no.</li>
+          <li>Keep it kind.</li>
+          <li>Activities can be sensual, but should be non-sexual and easy to opt out of.</li>
+        </ol>
+      </section>
+
+      <section id="sessionPanel" class="session-card is-hidden" aria-labelledby="session-title">
+        <h2 id="session-title">Your just-added slips</h2>
+        <p class="soft-copy">This page only reveals what you add during this visit.</p>
+        <div id="sessionList" class="session-list"></div>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="prompts.js"></script>
+    <script src="shared.js"></script>
+    <script src="enter.js"></script>
+  </body>
+</html>

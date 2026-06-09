@@ -1,0 +1,464 @@
+/*
+  EDIT COLORS HERE
+  Change these variables to quickly recolor the party pages.
+  The entering page and viewer page use different background variables.
+*/
+:root {
+  --enter-background: #fff1ba;
+  --viewer-background: #dff7ff;
+  --index-background: #f3e5ff;
+  --card-background: #fffdf6;
+  --ink: #2b2440;
+  --soft-ink: #6c617e;
+  --line-color: #2b2440;
+  --pink: #ff6fae;
+  --orange: #ff9d3d;
+  --blue: #4d82ff;
+  --green: #32b879;
+  --shadow-color: rgba(43, 36, 64, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family:
+    "Trebuchet MS", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+.page-enter {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 111, 174, 0.26), transparent 9rem),
+    radial-gradient(circle at 85% 18%, rgba(77, 130, 255, 0.22), transparent 11rem),
+    linear-gradient(135deg, var(--enter-background), #ffe6d6);
+}
+
+.page-viewer {
+  background:
+    radial-gradient(circle at 12% 16%, rgba(50, 184, 121, 0.22), transparent 10rem),
+    radial-gradient(circle at 86% 12%, rgba(255, 157, 61, 0.24), transparent 12rem),
+    linear-gradient(135deg, var(--viewer-background), #ecf7df);
+}
+
+.page-index {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 157, 61, 0.22), transparent 11rem),
+    linear-gradient(135deg, var(--index-background), #fff1ba);
+}
+
+.party-shell {
+  width: min(980px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 22px 0 54px;
+  display: grid;
+  gap: 16px;
+}
+
+.viewer-shell {
+  width: min(1080px, calc(100% - 28px));
+}
+
+.party-header,
+.submission-card,
+.instructions-card,
+.session-card,
+.draw-card,
+.door-card {
+  position: relative;
+  border: 3px solid var(--line-color);
+  border-radius: 18px;
+  background: var(--card-background);
+  box-shadow: 8px 8px 0 var(--shadow-color);
+}
+
+.party-header {
+  padding: clamp(20px, 5vw, 42px);
+  overflow: hidden;
+}
+/* 
+.party-header::after,
+.draw-card::after,
+.submission-card::after {
+  content: "";
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  right: 18px;
+  top: 18px;
+  border: 3px solid var(--line-color);
+  border-radius: 28px 40px 24px 42px;
+  background-image: url(dancing-party-event.JPEG)
+    ;
+    linear-gradient(90deg, transparent 45%, var(--line-color) 45% 49%, transparent 49%),
+    linear-gradient(var(--pink), var(--orange));
+  transform: rotate(9deg);
+  opacity: 0.82;
+  pointer-events: none;
+}
+*/
+
+.page-links {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.page-links a,
+.door-card {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.page-links a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border: 2px solid var(--line-color);
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 0 14px;
+  font-weight: 800;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  color: var(--pink);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 12px;
+  font-size: clamp(2.4rem, 9vw, 5.8rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  letter-spacing: 0;
+}
+
+.header-note {
+  max-width: 640px;
+  margin-bottom: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.submission-card,
+.instructions-card,
+.session-card,
+.draw-card {
+  padding: clamp(18px, 4vw, 30px);
+}
+
+.prompt-form {
+  display: grid;
+  gap: 14px;
+}
+
+.field-block {
+  display: grid;
+  gap: 8px;
+  color: var(--soft-ink);
+  font-weight: 900;
+}
+
+textarea,
+select {
+  width: 100%;
+  border: 3px solid var(--line-color);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  padding: 14px;
+  font-weight: 750;
+  box-shadow: 4px 4px 0 rgba(43, 36, 64, 0.12);
+}
+
+textarea {
+  min-height: 136px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 320px) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.party-button,
+.ghost-button {
+  border: 3px solid var(--line-color);
+  border-radius: 14px;
+  color: var(--ink);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.party-button {
+  min-height: 58px;
+  background: linear-gradient(135deg, var(--pink), var(--orange));
+  box-shadow: 5px 5px 0 var(--line-color);
+  padding: 0 20px;
+}
+
+.party-button:disabled,
+.ghost-button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.ghost-button {
+  min-height: 44px;
+  background: #ffffff;
+  padding: 0 14px;
+}
+
+.wide-button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.save-status,
+.soft-copy {
+  margin-bottom: 0;
+  color: var(--soft-ink);
+  font-weight: 800;
+}
+
+.instruction-list {
+  margin: 0;
+  padding-left: 24px;
+  color: var(--soft-ink);
+  font-weight: 800;
+}
+
+.instruction-list li + li {
+  margin-top: 8px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.session-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.mini-slip {
+  border: 2px dashed var(--line-color);
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 12px;
+}
+
+.mini-slip strong {
+  color: var(--blue);
+}
+
+.mini-slip p {
+  margin: 4px 0 0;
+}
+
+.draw-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.chooser-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.4fr);
+  gap: 14px;
+}
+
+.choice-group {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.choice-group legend {
+  margin-bottom: 8px;
+  color: var(--soft-ink);
+  font-weight: 950;
+}
+
+.segmented-control,
+.category-choices {
+  display: grid;
+  gap: 8px;
+}
+
+.segmented-control {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.category-choices {
+  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+}
+
+.segmented-control input,
+.category-choices input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented-control label,
+.category-choices label {
+  min-height: 46px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--line-color);
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 0 10px;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+}
+
+.segmented-control input:checked + label,
+.category-choices input:checked + label {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.prompt-stage {
+  min-height: 270px;
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  border: 3px solid var(--line-color);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 111, 174, 0.13) 25%, transparent 25% 50%, rgba(77, 130, 255, 0.13) 50% 75%, transparent 75%),
+    #ffffff;
+  background-size: 44px 44px;
+  padding: clamp(18px, 4vw, 34px);
+}
+
+.prompt-label {
+  margin-bottom: 0;
+  color: var(--blue);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.prompt-display {
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 5vw, 3.8rem);
+  font-weight: 950;
+  line-height: 1.06;
+}
+
+.prompt-display.is-empty {
+  min-height: 1.2em;
+}
+
+.landing-shell {
+  min-height: 100vh;
+  align-content: center;
+}
+
+.door-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.door-card {
+  display: grid;
+  min-height: 180px;
+  align-content: end;
+  padding: 20px;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 950;
+}
+
+.door-card span {
+  margin-bottom: 8px;
+  color: var(--pink);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 760px) {
+  .party-shell {
+    width: min(100% - 18px, 620px);
+    padding-top: 10px;
+  }
+
+  .party-header::after,
+  .draw-card::after,
+  .submission-card::after {
+    width: 54px;
+    height: 54px;
+    right: 12px;
+    top: 12px;
+    opacity: 0.35;
+  }
+
+  .page-links {
+    justify-content: flex-start;
+  }
+
+  .form-row,
+  .chooser-grid,
+  .door-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .draw-card-top {
+    flex-direction: column;
+  }
+
+  .party-button,
+  .ghost-button {
+    width: 100%;
+  }
+
+  .segmented-control {
+    grid-template-columns: 1fr;
+  }
+}

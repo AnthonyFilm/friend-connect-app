@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Friend Connect Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-viewer">
+    <main class="party-shell viewer-shell">
+      <header class="party-header">
+        <nav class="page-links" aria-label="Party pages">
+          <a href="enter.html">Enter prompts</a>
+        </nav>
+        <p class="kicker" data-app-name>Friend Connect</p>
+        <h1 data-page-greeting>Draw a little spark</h1>
+        <p class="header-note" data-page-subheading>Nothing appears until someone presses the button.</p>
+      </header>
+
+      <section class="draw-card" aria-labelledby="draw-title">
+        <div class="draw-card-top">
+          <div>
+            <p id="deckStatus" class="soft-copy">Pick your deck and category.</p>
+            <h2 id="draw-title">Prompt drawer</h2>
+          </div>
+          <button id="refreshPrompts" class="ghost-button" type="button">Refresh guest deck</button>
+        </div>
+
+        <div class="chooser-grid" aria-label="Deck filters">
+          <fieldset class="choice-group">
+            <legend>Deck</legend>
+            <div class="segmented-control">
+              <input type="radio" id="deckPrefilled" name="deckSource" value="prefilled" />
+              <label for="deckPrefilled">Prefilled</label>
+              <input type="radio" id="deckGuest" name="deckSource" value="guest" />
+              <label for="deckGuest">Guest</label>
+              <input type="radio" id="deckBoth" name="deckSource" value="both" checked />
+              <label for="deckBoth">Both</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>Category</legend>
+            <div id="categoryChoices" class="category-choices"></div>
+          </fieldset>
+        </div>
+
+        <div id="promptStage" class="prompt-stage" aria-live="polite">
+          <p id="promptCategoryLabel" class="prompt-label">Ready when you are</p>
+          <p id="promptDisplay" class="prompt-display is-empty"></p>
+        </div>
+
+        <button id="drawPrompt" class="party-button wide-button" type="button">Pull a prompt</button>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="prompts.js"></script>
+    <script src="shared.js"></script>
+    <script src="viewer.js"></script>
+  </body>
+</html>
