@@ -3,12 +3,14 @@ setSharedHeadings("viewer");
 const categorySelect = document.querySelector("#categorySelect");
 const drawPromptButton = document.querySelector("#drawPrompt");
 const refreshPromptsButton = document.querySelector("#refreshPrompts");
+const resetSessionButton = document.querySelector("#resetSession");
+const promptStage = document.querySelector("#promptStage");
 const promptCategoryLabel = document.querySelector("#promptCategoryLabel");
 const promptDisplay = document.querySelector("#promptDisplay");
 const deckStatus = document.querySelector("#deckStatus");
 
 let guestPrompts = [];
-let lastPromptId = "";
+const drawnPromptIds = new Set();
 
 function renderCategorySelect() {
   PARTY_CATEGORIES.forEach((category) => {
@@ -42,6 +44,10 @@ function currentDeck() {
   return filterByCategory([...prefilled, ...guestPrompts]);
 }
 
+function availableDeck() {
+  return currentDeck().filter((prompt) => !drawnPromptIds.has(prompt.id));
+}
+
 async function refreshGuestPrompts() {
   deckStatus.textContent = "Refreshing the guest deck...";
   refreshPromptsButton.disabled = true;
@@ -58,7 +64,9 @@ async function refreshGuestPrompts() {
 }
 
 function drawPrompt() {
+  promptStage.classList.remove("session-complete");
   const deck = currentDeck();
+  const available = availableDeck();
 
   if (!deck.length) {
     promptCategoryLabel.textContent = "No matches yet";
@@ -67,13 +75,30 @@ function drawPrompt() {
     return;
   }
 
-  const available = deck.length > 1 ? deck.filter((prompt) => prompt.id !== lastPromptId) : deck;
+  if (!available.length) {
+    promptCategoryLabel.textContent = "Session complete";
+    promptDisplay.textContent = "You have drawn every matching prompt in this session. Change the deck to add cards or reset the session to start over.";
+    promptDisplay.classList.remove("is-empty");
+    promptStage.classList.add("session-complete");
+    return;
+  }
+
   const prompt = available[Math.floor(Math.random() * available.length)];
-  lastPromptId = prompt.id;
+  drawnPromptIds.add(prompt.id);
 
   promptCategoryLabel.textContent = `${prompt.category} - ${prompt.source === "prefilled" ? "Prefilled" : "Guest"}`;
   promptDisplay.textContent = prompt.text;
   promptDisplay.classList.remove("is-empty");
+  deckStatus.textContent = `${available.length - 1} matching prompt${available.length === 2 ? "" : "s"} left in this session.`;
+}
+
+function resetSession() {
+  drawnPromptIds.clear();
+  promptStage.classList.remove("session-complete");
+  promptCategoryLabel.textContent = "Session reset";
+  promptDisplay.textContent = "";
+  promptDisplay.classList.add("is-empty");
+  deckStatus.textContent = "All matching prompts are available again.";
 }
 
 renderCategorySelect();
@@ -81,3 +106,4 @@ refreshGuestPrompts();
 
 drawPromptButton.addEventListener("click", drawPrompt);
 refreshPromptsButton.addEventListener("click", refreshGuestPrompts);
+resetSessionButton.addEventListener("click", resetSession);

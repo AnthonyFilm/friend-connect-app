@@ -24,7 +24,26 @@
             <h2 id="draw-title">Prompt drawer</h2>
             <p id="deckStatus" class="soft-copy">Pick your deck. Category is optional.</p>
           </div>
-          <button id="refreshPrompts" class="ghost-button" type="button">Refresh guest deck</button>
+          <div class="draw-card-actions">
+            <button
+              id="refreshPrompts"
+              class="ghost-button"
+              type="button"
+              title="Reload guest-submitted prompts from storage without clearing your drawn-card session."
+              aria-label="Refresh guest deck. Reload guest-submitted prompts from storage without clearing your drawn-card session."
+            >
+              Reload guest deck
+            </button>
+            <button
+              id="resetSession"
+              class="ghost-button"
+              type="button"
+              title="Clear the list of cards drawn in this session so every prompt can appear again."
+              aria-label="Reset session. Clear the list of cards drawn in this session so every prompt can appear again."
+            >
+              Reset session
+            </button>
+          </div>
         </div>
 
         <div class="chooser-grid" aria-label="Deck filters">
@@ -53,7 +72,7 @@
           <p id="promptDisplay" class="prompt-display is-empty"></p>
         </div>
 
-        <button id="drawPrompt" class="party-button wide-button" type="button">Pull a prompt</button>
+        <button id="drawPrompt" class="party-button wide-button" type="button">Draw a Connection Spark</button>
       </section>
 
     </main>

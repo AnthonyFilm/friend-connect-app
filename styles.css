@@ -91,6 +91,7 @@ a {
   box-shadow: 8px 8px 0 var(--shadow-color);
 }
 
+
 .party-header {
   padding: clamp(20px, 5vw, 42px);
   overflow: hidden;
@@ -270,6 +271,14 @@ textarea {
   padding: 0 14px;
 }
 
+#resetSession {
+  background: #9f2f4a;
+}
+
+#resetSession:hover {
+  background: #b63a59;
+}
+
 .wide-button {
   width: 100%;
   margin-top: 16px;
@@ -324,6 +333,13 @@ textarea {
   align-items: start;
   gap: 14px;
   margin-bottom: 16px;
+}
+
+.draw-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .chooser-grid {
@@ -406,6 +422,22 @@ textarea {
   padding: clamp(18px, 4vw, 34px);
 }
 
+.prompt-stage.session-complete {
+  border-color: #c653c4;
+  background:
+    radial-gradient(circle at 16% 26%, #c653c4 0 1.15rem, transparent 1.2rem),
+    radial-gradient(circle at 72% 34%, #c653c4 0 1rem, transparent 1.05rem),
+    #fff0f4;
+}
+
+.prompt-stage.session-complete .prompt-label {
+  color: #c6536b;
+}
+
+.prompt-stage.session-complete .prompt-display {
+  color: #7e2437;
+}
+
 .prompt-label {
   margin-bottom: 0;
   color: var(--blue);
@@ -481,6 +513,10 @@ textarea {
 
   .draw-card-top {
     flex-direction: column;
+  }
+
+  .draw-card-actions {
+    width: 100%;
   }
 
   .party-button,
