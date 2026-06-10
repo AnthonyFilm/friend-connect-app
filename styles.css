@@ -8,6 +8,7 @@
   --viewer-background: #efe5ff;
   --index-background: #f3e5ff;
   --card-background: #fffdf6;
+  --header-card-background:  #f4e2f7;
   --ink: #2b2440;
   --soft-ink: #6c617e;
   --line-color: #30184f;
@@ -85,7 +86,7 @@ a {
 .door-card {
   position: relative;
   border: 3px solid var(--line-color);
-  border-radius: 18px;
+  border-radius: 13px;
   background: var(--card-background);
   box-shadow: 8px 8px 0 var(--shadow-color);
 }
@@ -93,6 +94,7 @@ a {
 .party-header {
   padding: clamp(20px, 5vw, 42px);
   overflow: hidden;
+  background: var(--header-card-background)
 }
 
 .compact-header {
@@ -103,9 +105,9 @@ a {
   margin-bottom: 12px;
 }
 
-.compact-header h1 {
+/* .party-header.compact-header > h2 {
   font-size: clamp(1.8rem, 5vw, 3.2rem);
-}
+} */
 
 .compact-header .header-note {
   margin-bottom: 0;
@@ -150,7 +152,7 @@ a {
   align-items: center;
   border: 2px solid var(--line-color);
   border-radius: 999px;
-  background: #ffffff;
+  background: #a12983;
   padding: 0 14px;
   font-weight: 800;
 }
@@ -158,29 +160,28 @@ a {
 .kicker {
   margin: 0 0 8px;
   color: var(--pink);
-  font-size: 0.82rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-h1,
 h2,
 p {
   margin-top: 0;
 }
 
-h1 {
+.party-header > h2 {
   max-width: 760px;
   margin-bottom: 12px;
-  font-size: clamp(2.4rem, 9vw, 5.8rem);
+  font-size: clamp(1.4rem, 9vw, 1.8rem);
   line-height: 0.92;
   letter-spacing: 0;
 }
 
 h2 {
   margin-bottom: 12px;
-  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  font-size: clamp(1.25rem, 3vw, 1.3rem);
   letter-spacing: 0;
 }
 
@@ -188,7 +189,7 @@ h2 {
   max-width: 640px;
   margin-bottom: 0;
   color: var(--soft-ink);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -432,13 +433,13 @@ textarea {
 .door-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 10px;
 }
 
 .door-card {
   display: grid;
   min-height: 180px;
-  align-content: end;
+  align-content: top;
   padding: 20px;
   font-size: clamp(1.35rem, 4vw, 2rem);
   font-weight: 950;
@@ -447,7 +448,7 @@ textarea {
 .door-card span {
   margin-bottom: 8px;
   color: var(--pink);
-  font-size: 0.86rem;
+  font-size: 1.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
