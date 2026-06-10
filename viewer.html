@@ -3,25 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Friend Connect Viewer</title>
+    <title>Connect Friend Viewer</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-viewer">
     <main class="party-shell viewer-shell">
-      <header class="party-header">
-        <nav class="page-links" aria-label="Party pages">
-          <a href="enter.html">Enter prompts</a>
-        </nav>
-        <p class="kicker" data-app-name>Friend Connect</p>
-        <h1 data-page-greeting>Draw a little spark</h1>
-        <p class="header-note" data-page-subheading>Nothing appears until someone presses the button.</p>
-      </header>
-
       <section class="draw-card" aria-labelledby="draw-title">
         <div class="draw-card-top">
           <div>
-            <p id="deckStatus" class="soft-copy">Pick your deck and category.</p>
             <h2 id="draw-title">Prompt drawer</h2>
+            <p id="deckStatus" class="soft-copy">Pick your deck. Category is optional.</p>
           </div>
           <button id="refreshPrompts" class="ghost-button" type="button">Refresh guest deck</button>
         </div>
@@ -40,8 +31,10 @@
           </fieldset>
 
           <fieldset class="choice-group">
-            <legend>Category</legend>
-            <div id="categoryChoices" class="category-choices"></div>
+            <label class="field-block" for="categorySelect">
+              Category optional
+              <select id="categorySelect" class="category-select"></select>
+            </label>
           </fieldset>
         </div>
 
@@ -52,6 +45,15 @@
 
         <button id="drawPrompt" class="party-button wide-button" type="button">Pull a prompt</button>
       </section>
+
+      <header class="party-header compact-header">
+        <nav class="page-links" aria-label="Party pages">
+          <a href="enter.html">Enter prompts</a>
+        </nav>
+        <p class="kicker" data-app-name>Connect Friend</p>
+        <h1 data-page-greeting>Draw a little spark</h1>
+        <p class="header-note" data-page-subheading>Nothing appears until someone presses the button.</p>
+      </header>
     </main>
 
     <script src="config.js"></script>

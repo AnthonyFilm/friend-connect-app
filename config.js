@@ -4,7 +4,7 @@
   Leave Supabase blank for local-only testing.
 */
 window.FRIEND_PARTY_CONFIG = {
-  appName: "Friend Connect",
+  appName: "Connect Friend",
   enterGreeting: "Toss a question or activity into the party bowl",
   viewerGreeting: "Spark Connections",
   enterSubheading: "Add a question or activity for the group. Keep it kind, open-ended, and party-safe.",

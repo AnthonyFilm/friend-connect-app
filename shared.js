@@ -99,7 +99,7 @@ function setSharedHeadings(pageKind) {
   const greeting = document.querySelector("[data-page-greeting]");
   const subheading = document.querySelector("[data-page-subheading]");
 
-  if (appName) appName.textContent = configurableText("appName", "Friend Connect");
+  if (appName) appName.textContent = configurableText("appName", "Connect Friend");
 
   if (pageKind === "enter") {
     if (greeting) greeting.textContent = configurableText("enterGreeting", "Toss a prompt into the party bowl");

@@ -34,5 +34,5 @@ http
     });
   })
   .listen(port, "127.0.0.1", () => {
-    console.log(`Friend Connect running at http://127.0.0.1:${port}/`);
+    console.log(`Connect Friend running at http://127.0.0.1:${port}/`);
   });

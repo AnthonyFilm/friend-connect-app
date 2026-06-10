@@ -1,4 +1,4 @@
-# Friend Connect Party App
+# Connect Friend Party App
 
 Two static pages:
 
