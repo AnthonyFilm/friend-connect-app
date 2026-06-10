@@ -485,6 +485,34 @@ textarea {
   letter-spacing: 0.08em;
 }
 
+.site-footer {
+  width: min(980px, calc(100% - 28px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: -26px auto 28px;
+  color: var(--soft-ink);
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 34px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--deep-purple);
+  font-weight: 900;
+}
+
 @media (max-width: 760px) {
   .party-shell {
     width: min(100% - 18px, 620px);
@@ -526,5 +554,10 @@ textarea {
 
   .segmented-control {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    margin-top: -18px;
   }
 }
